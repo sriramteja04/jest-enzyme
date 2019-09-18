@@ -3,41 +3,58 @@ import App from './App';
 import Enzyme, {shallow} from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import sinon from 'sinon';
+import {findByDataTest} from '../util/testing/findByAttr';
 
 Enzyme.configure({
   adapter: new EnzymeAdapter()
 })
 
-const setUp = () => {
-  const wrapper = shallow(<App />);
-  return wrapper;
-}
-
-const findByDataTest = (component,attr) => {
-  const test = component.find(`[data-test='${attr}']`);
-  return test
+/** 
+ * Function to create ShallowWrapper copy for an App component
+ * @function setUp
+ * @param {object} props - Component props specific to this setup
+ * @param {object} state - Initial state for setup
+ * @returns {ShallowWrapper}
+*/
+const setUp = (props={}, state=null) => {
+  const wrapper = shallow(<App {...props} />);
+  if(state) wrapper.setState(state)
+  return wrapper
 }
 
 describe("Testing <APP />", () => {
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = setUp();
+  })
+
   it('renders without error', () => {
-    const component = setUp();
-    const result = findByDataTest(component,'App-component');
-    expect(result.length).toBe(1);
+    const component = findByDataTest(wrapper,'App-component');
+    expect(component.length).toBe(1);
   });
   
   it('renders increment button', () => {
-
+    const button = findByDataTest(wrapper,'increment-button');
+    expect(button.length).toBe(1);
   });
 
   it('renders counter display', () => {
-
+    const counter = findByDataTest(wrapper,'increment-counter');
+    expect(counter.length).toBe(1);
   })
 
   it('renders counter starts at 0', () => {
-
+    expect(wrapper.state('counter')).toEqual(0);
   });
 
   it('renders clicking button increments counter display', () => {
-
+    let counter = 7;
+    wrapper = setUp(null, {counter});
+    const button = findByDataTest(wrapper, 'increment-button');
+    button.simulate('click');
+    const counterDisplay = findByDataTest(wrapper, 'increment-counter');
+    expect(counterDisplay.text()).toEqual(8);
   });
 });
