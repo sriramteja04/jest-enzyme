@@ -1,0 +1,32 @@
+body {
+  background-color: #2e3636;
+}
+
+.App {
+  text-align: center;
+  font-family: sans-serif;
+  color: #abb8b8;
+}
+
+.App .decrement-button, .App .increment-button {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+  color: white;
+}
+
+.App .error-message {
+  color: #e45757;
+}
+
+.App .decrement-button {
+  background-color: #c43535;
+}
+
+.App .increment-button {
+  background-color: #277240;
+}
+/*# sourceMappingURL=App.css.map */

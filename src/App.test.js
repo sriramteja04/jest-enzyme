@@ -52,9 +52,42 @@ describe("Testing <APP />", () => {
   it('renders clicking button increments counter display', () => {
     let counter = 7;
     wrapper = setUp(null, {counter});
+
+    //Render Button and simulate
     const button = findByDataTest(wrapper, 'increment-button');
     button.simulate('click');
+
     const counterDisplay = findByDataTest(wrapper, 'increment-counter');
-    expect(counterDisplay.text()).toEqual(8);
+    expect(counterDisplay.text()).toContain(8);
   });
+
+  it('renders decrement counter', () => {
+    let counter = 7;
+    wrapper = setUp(null, {counter});
+
+    //Render Button and simulate
+    const button = findByDataTest(wrapper, 'decrement-button');
+    button.simulate('click');
+
+    const counterDisplay = findByDataTest(wrapper, 'increment-counter');    
+    expect(counterDisplay.text()).toContain(6)
+  });
+
+  it('display an error message', () => {
+    let counter = 0;
+    wrapper = setUp(null, {counter});
+
+    //Render Button and simulate
+    const button = findByDataTest(wrapper, 'decrement-button');
+    button.simulate('click');
+
+    //Error-Message
+    const errorMessage = findByDataTest(wrapper, 'error-message');
+    expect(errorMessage.length).toBe(1);
+
+    //Never displays less than 0
+    const counterDisplay = findByDataTest(wrapper, 'increment-counter');  
+    expect(counterDisplay.text()).toContain(0);
+  })
+
 });
