@@ -8,7 +8,7 @@ body {
   color: #abb8b8;
 }
 
-.App .decrement-button, .App .increment-button {
+.App .btn {
   font-size: 1rem;
   font-weight: 500;
   margin-right: 1rem;
@@ -18,15 +18,28 @@ body {
   color: white;
 }
 
+.App .btn.decrement-button {
+  background-color: #c43535;
+}
+
+.App .btn.increment-button {
+  background-color: #277240;
+}
+
+.App .btn.link {
+  background-color: #6a9490;
+  margin-top: 1rem;
+}
+
 .App .error-message {
   color: #e45757;
 }
 
-.App .decrement-button {
-  background-color: #c43535;
+.App .link {
+  margin-top: 2rem;
 }
 
-.App .increment-button {
-  background-color: #277240;
+.App .link a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=App.css.map */
