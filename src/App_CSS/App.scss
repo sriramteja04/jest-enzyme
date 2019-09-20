@@ -10,8 +10,7 @@ body {
     text-align: center;
     font-family: sans-serif;
     color: lighten($bg-color, 50%);
-    
-    .btn {
+    .decrement-button, .increment-button {
         font-size: 1rem;
         font-weight: 500;
         margin-right: 1rem;
@@ -19,30 +18,17 @@ body {
         padding: 1rem;
         border: none;
         color: white;
-
-        &.decrement-button{
-            background-color: rgb(196, 53, 53);
-        }
-    
-        &.increment-button {
-            background-color: rgb(39, 114, 64);
-        }
-        &.link {
-            background-color: rgb(106, 148, 144);
-            margin-top: 1rem;
-        }
     }
 
     .error-message {
         color: rgb(228, 87, 87);
     }
 
-    .link {
-        margin-top: 2rem;
-
-        a{
-            text-decoration: none;
-        }
+    .decrement-button{
+        background-color: rgb(196, 53, 53);
     }
-    
+
+    .increment-button {
+        background-color: rgb(39, 114, 64);
+    }
 }
