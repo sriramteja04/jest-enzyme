@@ -1,13 +1,8 @@
 import React from 'react';
 import App from './App';
-import Enzyme, {shallow} from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
+import {shallow} from 'enzyme';
 import sinon from 'sinon';
-import {findByDataTest} from '../util/testing/findByAttr';
-
-Enzyme.configure({
-  adapter: new EnzymeAdapter()
-})
+import {findByDataTest} from '../util/testing_util';
 
 /** 
  * Function to create ShallowWrapper copy for an App component

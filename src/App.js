@@ -52,14 +52,14 @@ class App extends React.Component {
               Decrement Counter
           </button>
 
-      <BrowserRouter>
-          <div className="link">
-            <Link className="btn link" to='/jotto-app'>
-              Congrats Component
-            </Link>
-          </div>
-        <Route exact path="/jotto-app" component={Congrats}/>
-      </BrowserRouter>
+          <BrowserRouter>
+              <div className="link">
+                <Link className="btn link" to='/jotto-app'>
+                  Congrats Component
+                </Link>
+              </div>
+            <Route exact path="/jotto-app" component={Congrats}/>
+          </BrowserRouter>
         </div>
     );
   }
